@@ -209,15 +209,84 @@ a { color: var(--green); }
 
 @media (max-width: 860px) { .services { grid-template-columns: 1fr; } }
 
-/* Approach */
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: step; }
-.steps li { border-top: 2px solid var(--black); padding-top: 22px; }
-.step-num { display: block; font-family: var(--font-display); font-size: 2.4rem; color: var(--green); line-height: 1; margin-bottom: 18px; }
-.steps h3 { margin-bottom: 8px; }
-.steps p { color: var(--muted); font-size: .97rem; }
+/* Approach: the journey trail */
+.journey { background: linear-gradient(180deg, var(--white) 0%, var(--green-tint) 100%); }
+.journey-head { text-align: center; margin-inline: auto; }
 
-@media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+.trail { position: relative; aspect-ratio: 1000 / 220; margin: 10px 0 40px; }
+.trail-line { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.trail-line path {
+  fill: none; stroke: #b9cbc2; stroke-width: 2.5; stroke-dasharray: 2 9; stroke-linecap: round;
+  vector-effect: non-scaling-stroke; transition: stroke .4s;
+}
+.trail-line path.done { stroke: var(--green); stroke-dasharray: none; }
+
+.trail-stops { position: absolute; inset: 0; }
+.stop {
+  position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  border: 0; background: none; padding: 0; cursor: pointer; font: inherit; color: var(--ink);
+}
+.stop-node {
+  display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--border);
+  box-shadow: 0 6px 18px rgba(14, 19, 17, .08);
+  transition: background .3s, border-color .3s, transform .3s;
+}
+.stop:hover .stop-node { transform: scale(1.06); border-color: var(--green); }
+.stop.done .stop-node { border-color: var(--green); }
+.stop.active .stop-node { background: var(--black); border-color: var(--black); transform: scale(1.12); }
+.rings { width: 44px; height: 28px; fill: none; stroke: var(--green); stroke-width: 2.2; }
+.rings circle { transition: cx .4s; }
+.stop.active .rings { stroke: var(--green-light); }
+.stop-label {
+  position: absolute; top: calc(100% + 4px); white-space: nowrap;
+  font-weight: 600; font-size: .95rem; text-align: center;
+}
+.stop:nth-child(even) .stop-label { top: auto; bottom: calc(100% + 4px); }
+.stop-num { display: block; font-family: var(--font-display); font-weight: 500; color: var(--green); font-size: .9rem; }
+.stop:not(.active) .stop-label { color: var(--muted); }
+
+.step-panel {
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px;
+  margin-top: 70px; padding: 44px; border-radius: 22px;
+  background: var(--white); box-shadow: var(--shadow); border: 1px solid var(--border);
+  animation: panel-in .45s ease;
+}
+@keyframes panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.step-count { font-family: var(--font-display); color: var(--green); font-size: 1.05rem; margin-bottom: 10px; }
+.step-panel h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.8rem, 3.2vw, 2.4rem); margin-bottom: 16px; }
+.step-text { color: var(--muted); font-size: 1.1rem; }
+.step-nav { display: flex; gap: 10px; margin-top: 28px; }
+.step-nav button {
+  width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--black); background: none;
+  font-size: 1.1rem; cursor: pointer; color: var(--black); transition: background .2s, color .2s;
+}
+.step-nav button:hover:not(:disabled) { background: var(--black); color: var(--white); }
+.step-nav button:disabled { opacity: .25; cursor: default; }
+.step-expect { padding-left: 40px; border-left: 1px solid var(--border); }
+.step-expect h4 {
+  margin: 0 0 16px; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+.step-expect .checklist { margin-bottom: 28px; }
+
+@media (max-width: 760px) {
+  .trail { aspect-ratio: auto; margin: 0; }
+  .trail-line { display: none; }
+  .trail-stops {
+    position: relative; display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .trail-stops::before {
+    content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%;
+    border-top: 2px dashed #b9cbc2;
+  }
+  .stop { position: relative; left: auto; top: auto; transform: none; }
+  .stop-node { width: 56px; height: 56px; }
+  .rings { width: 36px; height: 24px; }
+  .stop-label, .stop:nth-child(even) .stop-label { position: static; white-space: normal; font-size: .78rem; line-height: 1.3; }
+  .step-panel { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; padding: 28px 22px; }
+  .step-expect { padding-left: 0; border-left: 0; padding-top: 24px; border-top: 1px solid var(--border); }
+}
 
 /* Quote */
 .quote-band { background: var(--green); color: var(--white); padding-block: 80px; text-align: center; }

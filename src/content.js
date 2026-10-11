@@ -84,13 +84,33 @@ export const content = {
       cta: 'Pedir orientação para um familiar',
     },
     approach: {
-      title: 'Como funciona',
+      kicker: 'Como funciona',
+      title: 'O seu percurso, passo a passo',
+      subtitle: 'Cada etapa aproxima-o de si próprio e de quem o rodeia. Toque em cada passo para saber mais.',
       steps: [
-        { title: 'Primeiro contacto', text: 'Fale connosco por telefone, email ou pelo formulário. Respondemos com discrição.' },
-        { title: 'Avaliação', text: 'Uma primeira consulta para conhecer a sua história e as suas necessidades.' },
-        { title: 'Plano de tratamento', text: 'Definimos juntos um plano com sessões individuais diárias e sessões de grupo.' },
-        { title: 'Acompanhamento', text: 'Seguimos de perto a evolução e ajustamos o plano ao longo da recuperação.' },
+        {
+          title: 'Primeiro contacto',
+          text: 'Fale connosco por telefone, WhatsApp, email ou pelo formulário. Pode ser a própria pessoa ou um familiar.',
+          expect: ['Uma conversa sem compromisso', 'Resposta discreta e confidencial', 'Esclarecimento de dúvidas'],
+        },
+        {
+          title: 'Avaliação',
+          text: 'Uma primeira consulta com a psicóloga para conhecer a sua história, a relação com a dependência e aquilo que é importante para si.',
+          expect: ['Escuta sem julgamentos', 'Compreensão da situação atual', 'Definição de objetivos realistas'],
+        },
+        {
+          title: 'Plano de tratamento',
+          text: 'Definimos juntos um plano personalizado que combina sessões individuais diárias com sessões de grupo.',
+          expect: ['Sessões individuais todos os dias', 'Integração nas sessões de grupo', 'Envolvimento da família, se desejar'],
+        },
+        {
+          title: 'Acompanhamento',
+          text: 'Seguimos de perto a evolução, celebramos as conquistas e ajustamos o plano para prevenir recaídas e consolidar a mudança.',
+          expect: ['Revisão regular do plano', 'Estratégias de prevenção da recaída', 'Apoio na reconstrução de rotinas e relações'],
+        },
       ],
+      expectTitle: 'O que esperar',
+      cta: 'Dar o primeiro passo',
     },
     team: {
       title: 'Equipa',
@@ -222,13 +242,33 @@ export const content = {
       cta: 'Get guidance for a family member',
     },
     approach: {
-      title: 'How it works',
+      kicker: 'How it works',
+      title: 'Your path, step by step',
+      subtitle: 'Every stage brings you closer to yourself and to the people around you. Tap each step to learn more.',
       steps: [
-        { title: 'First contact', text: 'Reach us by phone, email or the contact form. We reply discreetly.' },
-        { title: 'Assessment', text: 'A first appointment to understand your story and your needs.' },
-        { title: 'Treatment plan', text: 'Together we set a plan combining daily individual sessions and group sessions.' },
-        { title: 'Ongoing support', text: 'We follow your progress closely and adapt the plan throughout recovery.' },
+        {
+          title: 'First contact',
+          text: 'Reach us by phone, WhatsApp, email or the contact form. It can be you or a family member.',
+          expect: ['A no-commitment conversation', 'A discreet, confidential reply', 'Answers to your questions'],
+        },
+        {
+          title: 'Assessment',
+          text: 'A first appointment with the psychologist to understand your story, your relationship with the addiction and what matters to you.',
+          expect: ['Non-judgemental listening', 'Understanding where you are now', 'Setting realistic goals'],
+        },
+        {
+          title: 'Treatment plan',
+          text: 'Together we build a personalised plan combining daily individual sessions with group sessions.',
+          expect: ['Individual sessions every day', 'Joining the group sessions', 'Family involvement, if you wish'],
+        },
+        {
+          title: 'Ongoing support',
+          text: 'We follow your progress closely, celebrate milestones and adapt the plan to prevent relapse and make change last.',
+          expect: ['Regular plan reviews', 'Relapse-prevention strategies', 'Support rebuilding routines and relationships'],
+        },
       ],
+      expectTitle: 'What to expect',
+      cta: 'Take the first step',
     },
     team: {
       title: 'Team',
