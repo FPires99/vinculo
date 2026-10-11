@@ -6,4 +6,6 @@ export default defineConfig({
   plugins: [react()],
   // Relative paths so the build works on GitHub Pages or any sub-folder.
   base: './',
+  // Allow temporary share links (Cloudflare quick tunnels) to reach `vite preview`.
+  preview: { allowedHosts: ['.trycloudflare.com'] },
 })
