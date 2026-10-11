@@ -1,12 +1,11 @@
-import growthImg from '../assets/growth.jpg'
+import joanaImg from '../assets/joana.jpg'
 
 export default function Team({ t }) {
   return (
     <section id="team" className="section container">
       <div className="team">
         <figure className="team-photo">
-          {/* TODO: replace with a professional photo of Dra. Joana Abrantes */}
-          <img src={growthImg} alt="" loading="lazy" />
+          <img src={joanaImg} alt={t.name} loading="lazy" />
         </figure>
         <div>
           <p className="kicker">{t.title}</p>

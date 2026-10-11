@@ -296,8 +296,15 @@ a { color: var(--green); }
 
 /* Team */
 .team { display: grid; grid-template-columns: 380px 1fr; gap: 64px; align-items: center; }
-.team-photo { margin: 0; }
-.team-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+.team-photo { margin: 0; position: relative; }
+.team-photo::before {
+  content: ''; position: absolute; inset: -14px; border-radius: 50%;
+  border: 2px solid var(--green); transform: translateX(26px); opacity: .5;
+}
+.team-photo img {
+  position: relative; width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center 20%;
+  border-radius: 50%; background: var(--white); box-shadow: var(--shadow);
+}
 .team h2 { margin-bottom: 6px; }
 .team-role { color: var(--green); font-weight: 600; margin-bottom: 20px; }
 .team p:last-child { color: var(--muted); max-width: 38em; }
